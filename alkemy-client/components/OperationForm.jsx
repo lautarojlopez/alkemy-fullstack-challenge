@@ -1,6 +1,11 @@
 import React from 'react'
 
+//Components
+import Alert from './Alert'
+
 const OperationForm = () => {
+
+
 
 	return(
 		<form className="p-5 pb-10 flex flex-col text-cyan-800 bg-white shadow rounded w-full">
@@ -9,6 +14,7 @@ const OperationForm = () => {
 
 			<label htmlFor="concept">Concepto</label>
 			<input type="text" name="concept" id="concept" placeholder="Descripción de la operación"/>
+
 
 			<label htmlFor="amount">Monto</label>
 			<input type="number" min="0" name="amount" id="amount" placeholder="$"/>
