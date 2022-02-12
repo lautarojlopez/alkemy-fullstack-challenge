@@ -2,7 +2,7 @@ import React, {Fragment} from 'react'
 import Head from 'next/head'
 
 //Components
-import LoginForm from '../components/LoginForm'
+import RegistrationForm from '../components/RegistrationForm'
 
 const Login = () => {
 
@@ -15,9 +15,9 @@ const Login = () => {
 				<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet"/>
 			</Head>
 			<div className="bg-cyan-800">
-				<div className="min-h-screen flex flex-col justify-center items-center h-full">
+				<div className="min-h-screen py-5 flex flex-col justify-center items-center h-full">
 					<div className="w-11/12 md:w-8/12 lg:w-6/12 xl:w-4/12">
-						<LoginForm/>
+						<RegistrationForm/>
 					</div>
 				</div>
 			</div>

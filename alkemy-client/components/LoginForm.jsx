@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 //Components
 import Alert from './Alert'
@@ -25,12 +26,12 @@ const LoginForm = () => {
 	})
 
 	return(
-		<form onSubmit={form.handleSubmit} className="p-5 pb-10 flex flex-col text-cyan-800 bg-white shadow-lg rounded w-full">
+		<form onSubmit={form.handleSubmit} className="p-5 flex flex-col text-cyan-800 bg-white shadow-lg rounded w-full">
 
 			<h2 className="text-cyan-800 text-center font-bold text-2xl py-2"><i className="fa-solid fa-user"></i> Iniciar Sesión</h2>
 
 			<label htmlFor="email">E-mail</label>
-			<input type="text" name="email" id="email" value={form.values.email} onChange={form.handleChange} placeholder="Tu email"/>
+			<input type="email" name="email" id="email" value={form.values.email} onChange={form.handleChange} placeholder="Tu email"/>
 			{form.errors.email && form.touched.email ? <Alert msg={form.errors.email}/> : null}
 
 			<label htmlFor="password">Contraseña</label>
@@ -38,6 +39,9 @@ const LoginForm = () => {
 			{form.errors.password && form.touched.password ? <Alert msg={form.errors.password}/> : null}
 
 			<button type="submit" className="btn mt-3"><i className="fa-solid fa-right-to-bracket"></i> Ingresar</button>
+
+			<Link href="/register"><a className="text-cyan-800 hover:text-cyan-600 transition-all ease-linear duration-200 font-bold text-center pt-3">¿Aún no tienes cuenta? Crea una ahora</a></Link>
+
 		</form>
 	)
 

@@ -10,7 +10,7 @@ label{
 	@apply font-bold text-xl mt-3
 }
 
-input[type="text"], input[type="number"], input[type="date"],input[type="password"], select{
+input[type="text"], input[type="email"], input[type="number"], input[type="date"],input[type="password"], select{
 	@apply p-2 border-b-4 border-cyan-600 hover:border-cyan-800 focus:outline-none focus:border-cyan-800 text-black text-xl transition-all ease-in-out duration-200
 }
 
