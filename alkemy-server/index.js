@@ -18,6 +18,10 @@ db.sync()
 			console.log(e)
 		})
 
+//Enable CORS
+const cors = require('cors')
+app.use(cors())
+
 //Allow to read req.body
 app.use(express.json())
 

@@ -14,7 +14,7 @@ import authContext from '../context/auth/authContext'
 
 const RegistrationForm = () => {
 
-	//Exctrat state from context
+	//Extract state from context
 	const AuthContext = useContext(authContext)
 	const {createUser, clearMsg, msg, loading} = AuthContext
 

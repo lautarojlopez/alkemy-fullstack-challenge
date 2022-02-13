@@ -14,7 +14,7 @@ import authContext from '../context/auth/authContext'
 
 const LoginForm = () => {
 
-	//Exctrat state from context
+	//Extract state from context
 	const AuthContext = useContext(authContext)
 	const {logIn, clearMsg, msg, loading} = AuthContext
 

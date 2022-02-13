@@ -8,6 +8,8 @@ export default (state, action) => {
 				msg: action.payload
 			}
 		case types.LOGIN_SUCCESS:
+			//Save token in localstorage
+			localStorage.setItem('token', action.payload)
 			return{
 				...state,
 				token: action.payload,
