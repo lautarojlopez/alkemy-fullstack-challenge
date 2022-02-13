@@ -13,6 +13,7 @@ const Login = () => {
 				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossOrigin="anonymous"/>
 				{/* Font */}
 				<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet"/>
+				<title>Iniciar Sesión</title>
 			</Head>
 			<div className="bg-cyan-800">
 				<div className="min-h-screen py-5 flex flex-col justify-center items-center h-full">
