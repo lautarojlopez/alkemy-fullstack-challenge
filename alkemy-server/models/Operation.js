@@ -15,7 +15,6 @@ const Operation = db.define('operations', {
 	amount:{
 		type: DataTypes.DOUBLE(),
 		allowNull: false,
-		unique: true
 	},
 	date:{
 		type: DataTypes.DATE(),
