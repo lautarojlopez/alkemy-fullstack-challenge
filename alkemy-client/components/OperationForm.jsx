@@ -1,13 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 
 //Components
 import Alert from './Alert'
+import Spinner from './Spinner'
 
 //Dependencies
 import {useFormik} from 'formik'
 import * as yup from 'yup'
 
+//Context
+import appContext from '../context/app/appContext'
+
 const OperationForm = () => {
+
+	//Extract values from context
+	const AppContext = useContext(appContext)
+	const {createOperation, loading} = AppContext
 
 	//Formik form
 	const form = useFormik({
@@ -26,7 +34,7 @@ const OperationForm = () => {
 			type: yup.string().required('Selecciona el tipo de operación')
 		}),
 		onSubmit: (values) => {
-			console.log(values)
+			createOperation(values)
 		}
 	})
 
@@ -63,7 +71,11 @@ const OperationForm = () => {
 			</select>
 			{form.errors.type && form.touched.type ? <Alert msg={form.errors.type}/> : null}
 
-			<button type="submit" className="btn mt-3"><i className="fa-solid fa-dollar-sign"></i> Enviar</button>
+			{
+				loading ? (<div className="flex justify-center w-full"><Spinner/></div>)
+				: (<button type="submit" className="btn mt-3"><i className="fa-solid fa-dollar-sign"></i> Enviar</button>)
+			}
+
 		</form>
 	)
 
