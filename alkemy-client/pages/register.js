@@ -1,10 +1,23 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useEffect, useContext} from 'react'
+import {useRouter} from 'next/router'
 import Head from 'next/head'
 
 //Components
 import RegistrationForm from '../components/RegistrationForm'
 
 const Register = () => {
+
+	//Router
+	const router = useRouter()
+
+	useEffect(() => {
+		//Read token from localstorage
+		const token = localStorage.getItem('token')
+		//If there is a token, return to index
+		if(token){
+			router.push('/')
+		}
+	}, [])
 
 	return(
 		<Fragment>
