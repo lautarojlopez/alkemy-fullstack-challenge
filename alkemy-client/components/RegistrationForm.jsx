@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Link from 'next/link'
 
 //Components
@@ -8,7 +8,15 @@ import Alert from './Alert'
 import {useFormik} from 'formik'
 import * as yup from 'yup'
 
+//Context
+import authContext from '../context/auth/authContext'
+
 const RegistrationForm = () => {
+
+
+	//Exctrat state from context
+	const AuthContext = useContext(authContext)
+	const {createUser, msg} = AuthContext
 
 	//Formik form
 	const form = useFormik({
@@ -25,7 +33,7 @@ const RegistrationForm = () => {
 			validate_password: yup.string().required('Reescribe tu contraseña')
 		}),
 		onSubmit: (values) => {
-			console.log(values)
+			createUser(values)
 		}
 	})
 
@@ -33,6 +41,8 @@ const RegistrationForm = () => {
 		<form onSubmit={form.handleSubmit} className="p-5 flex flex-col text-cyan-800 bg-white shadow-lg rounded w-full">
 
 			<h2 className="text-cyan-800 text-center font-bold text-2xl py-2"><i className="fa-solid fa-user-plus"></i> Crear Cuenta</h2>
+
+			{msg ? <Alert msg={msg}/> : null}
 
 			<label htmlFor="name">Nombre</label>
 			<input type="text" name="name" id="name" value={form.values.name} onChange={form.handleChange} placeholder="Tu nombre"/>

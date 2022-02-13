@@ -4,7 +4,7 @@ import Head from 'next/head'
 //Components
 import RegistrationForm from '../components/RegistrationForm'
 
-const Login = () => {
+const Register = () => {
 
 	return(
 		<Fragment>
@@ -27,4 +27,4 @@ const Login = () => {
 
 }
 
-export default Login
+export default Register

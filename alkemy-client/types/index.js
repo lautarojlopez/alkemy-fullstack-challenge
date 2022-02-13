@@ -1,6 +1,8 @@
 //Types for reducers
 const types = {
-
+	USER_REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
+	USER_REGISTER_ERROR: 'USER_REGISTER_ERROR',
+	CLEAR_MESSAGE: 'CLEAR_MESSAGE'
 }
 
 export default types
