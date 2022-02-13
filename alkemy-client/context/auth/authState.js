@@ -131,6 +131,13 @@ const AuthState = ({children}) => {
 
 	}
 
+	//LogOut
+	const logOut = () => {
+		dispatch({
+			type: types.LOGOUT
+		})
+	}
+
 	return(
 		<authContext.Provider
 			value={{
@@ -140,6 +147,7 @@ const AuthState = ({children}) => {
 				loading: state.loading,
 				createUser,
 				logIn,
+				logOut,
 				clearMsg,
 				getAuthenticatedUser
 			}}

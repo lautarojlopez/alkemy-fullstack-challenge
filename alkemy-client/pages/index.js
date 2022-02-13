@@ -14,7 +14,7 @@ export default function Home() {
 
 	//Extract values from context
 	const AuthContext = useContext(authContext)
-	const {getAuthenticatedUser} = AuthContext
+	const {getAuthenticatedUser, user} = AuthContext
 
 	//Router
 	const router = useRouter()
@@ -30,7 +30,7 @@ export default function Home() {
 		else{
 			router.push('/login')
 		}
-	}, [])
+	}, [user])
 
 	return (
 		<Fragment>

@@ -7,7 +7,7 @@ const Header = () => {
 
 	//Extract values from context
 	const AuthContext = useContext(authContext)
-	const {user} = AuthContext
+	const {logOut ,user} = AuthContext
 
 	//State to show or disable menu in mobile screens
 	const [showMenu, setShowMenu] = useState(false)
@@ -20,10 +20,10 @@ const Header = () => {
 			</div>
 			<div className="flex items-center hidden md:block">
 				<p className="mr-5 inline-block">Hola, {user ? user.name : null}</p>
-				<button type="button" className="btn-white inline-block"><i className="fa-solid fa-right-from-bracket mr-1"></i> Cerrar Sesión</button>
+				<button onClick={logOut} type="button" className="btn-white inline-block"><i className="fa-solid fa-right-from-bracket mr-1"></i> Cerrar Sesión</button>
 			</div>
 			<div className={`flex flex-col mt-5 items-center ${showMenu ? 'block' : 'hidden'}`}>
-				<button type="button" className="btn-white inline-block flex items-center"><i className="fa-solid fa-right-from-bracket mr-1"></i> Cerrar Sesión</button>
+				<button onClick={logOut} type="button" className="btn-white inline-block flex items-center"><i className="fa-solid fa-right-from-bracket mr-1"></i> Cerrar Sesión</button>
 			</div>
 		</header>
 	)

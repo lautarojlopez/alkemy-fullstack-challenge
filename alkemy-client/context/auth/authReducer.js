@@ -35,6 +35,14 @@ export default (state, action) => {
 				...state,
 				user: action.payload
 			}
+		case types.LOGOUT:
+			//Remove token from localstorage
+			localStorage.removeItem('token')
+			return{
+				...state,
+				user: null,
+				token: null
+			}
 		default:
 			return state
 	}
