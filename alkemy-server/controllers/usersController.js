@@ -11,7 +11,6 @@ exports.createUser = async (req, res) => {
 	  return res.status(400).json({errors: errors.array()})
 	}
 
-
 	try {
 		//Destructuring data from req.body
 		const {email, password, validate_password} = req.body
