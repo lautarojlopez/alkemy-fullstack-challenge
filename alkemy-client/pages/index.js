@@ -1,9 +1,7 @@
-import Script from 'next/script'
 import Head from 'next/head'
 
 //Components
 import OperationForm from '../components/OperationForm'
-import Operation from '../components/Operation'
 import OperationsList from '../components/OperationsList'
 
 export default function Home() {

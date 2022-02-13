@@ -1,8 +1,9 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import Link from 'next/link'
 
 //Components
 import Alert from './Alert'
+import Spinner from './Spinner'
 
 //Dependencies
 import {useFormik} from 'formik'
@@ -13,10 +14,14 @@ import authContext from '../context/auth/authContext'
 
 const RegistrationForm = () => {
 
-
 	//Exctrat state from context
 	const AuthContext = useContext(authContext)
-	const {createUser, msg} = AuthContext
+	const {createUser, clearMsg, msg, loading} = AuthContext
+
+	useEffect(() => {
+		//Clear any possible error message
+		clearMsg()
+	}, [])
 
 	//Formik form
 	const form = useFormik({
@@ -60,7 +65,10 @@ const RegistrationForm = () => {
 			<input type="password" name="validate_password" id="validate_password" value={form.values.validate_password} onChange={form.handleChange} placeholder="Repite tu contraseña"/>
 			{form.errors.validate_password && form.touched.validate_password ? <Alert msg={form.errors.validate_password}/> : null}
 
-			<button type="submit" className="btn mt-3"><i className="fa-solid fa-right-to-bracket"></i> Registrarme</button>
+			{
+				loading ? (<div className="flex justify-center w-full"><Spinner/></div>)
+				: (<button type="submit" className="btn mt-3"><i className="fa-solid fa-right-to-bracket"></i> Registrarme</button>)
+			}
 
 			<Link href="/login"><a className="text-cyan-800 hover:text-cyan-600 transition-all ease-linear duration-200 font-bold text-center pt-3">¿Ya tienes una cuenta? Inicia Sesión</a></Link>
 
