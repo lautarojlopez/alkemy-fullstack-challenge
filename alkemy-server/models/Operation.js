@@ -17,7 +17,7 @@ const Operation = db.define('operations', {
 		allowNull: false,
 	},
 	date:{
-		type: DataTypes.DATE(),
+		type: DataTypes.DATEONLY(),
 		allowNull: false
 	},
 	category:{
