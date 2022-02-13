@@ -64,6 +64,6 @@ exports.authenticateUser = async (req, res) => {
 }
 
 //Get authenticated user
-const getAuthenticatedUser = (req, res) => {
+exports.getAuthenticatedUser = (req, res) => {
 	res.json({user: req.user})
 }
