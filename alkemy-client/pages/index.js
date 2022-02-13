@@ -5,6 +5,7 @@ import {useRouter} from 'next/router'
 //Components
 import OperationForm from '../components/OperationForm'
 import OperationsList from '../components/OperationsList'
+import Header from '../components/Header'
 
 //Context
 import authContext from '../context/auth/authContext'
@@ -40,8 +41,8 @@ export default function Home() {
 				<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet"/>
 				<title>Inicio</title>
 			</Head>
-			<main className="min-h-screen pb-5 bg-cyan-800 text-white">
-				<h1 className="py-5 font-bold text-center text-4xl"><i className="fa-solid fa-money-bill-1"></i> Administrador de Presupuesto <i className="fa-solid fa-money-bill-1"></i></h1>
+			<Header/>
+			<main className="min-h-screen py-5 bg-cyan-800 text-white">
 				<div className="flex flex-col justify-center m-auto w-11/12 md:w-8/12 lg:w-6/12">
 					<div className="w-full">
 						<OperationForm/>

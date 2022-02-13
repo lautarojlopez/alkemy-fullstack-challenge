@@ -26,6 +26,10 @@ select{
 	@apply text-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-4 border-b-4 border-cyan-800 hover:border-cyan-600 rounded
 }
 
+.btn-white{
+	@apply text-xl bg-white text-cyan-800 hover:text-cyan-700 hover:bg-neutral-200 font-bold py-2 px-4 border-b-4 border-cyan-900 hover:border-cyan-800 rounded
+}
+
 .btn-left{
 	@apply text-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-2 px-4 border-b-4 border-cyan-800 hover:border-cyan-600 rounded-tl rounded-bl
 }
