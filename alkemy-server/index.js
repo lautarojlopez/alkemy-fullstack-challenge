@@ -5,7 +5,10 @@ const app = express()
 require('dotenv').config()
 const port = process.env.PORT
 
-//Connect to database
+//CONNECT TO DATABASE
+//Import models
+require('./models/User')
+//Sync
 const db = require('./config/db')
 db.sync()
 		.then(() => {
