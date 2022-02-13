@@ -8,6 +8,7 @@ const port = process.env.PORT
 //CONNECT TO DATABASE
 //Import models
 require('./models/User')
+require('./models/Operation')
 //Sync
 const db = require('./config/db')
 db.sync()

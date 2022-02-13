@@ -1,5 +1,6 @@
 const {DataTypes} = require('sequelize')
 const db = require('../config/db')
+const Operation = require('./Operation')
 
 const User = db.define('users', {
 	id:{
@@ -21,5 +22,8 @@ const User = db.define('users', {
 		allowNull: false
 	}
 })
+
+User.hasMany(Operation, {onDelete: 'cascade'})
+Operation.belongsTo(User)
 
 module.exports = User
