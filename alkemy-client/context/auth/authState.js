@@ -5,6 +5,7 @@ import types from '../../types'
 import axiosClient from '../../config/axios'
 import Swal from 'sweetalert2'
 import {useRouter} from 'next/router'
+import saveTokenHeader from '../../config/saveTokenHeader'
 
 const AuthState = ({children}) => {
 
@@ -109,6 +110,27 @@ const AuthState = ({children}) => {
 		})
 	}
 
+	//Get authenticated user and store it in state
+	const getAuthenticatedUser = async (token) => {
+		//Save token in headers
+		saveTokenHeader(token)
+
+		try {
+			//Send request
+			const response = await axiosClient.get('/api/auth')
+			//If there is an user athenticated, store it in state
+			if(response.data.user){
+				dispatch({
+					type: types.AUTHENTICATE_USER,
+					payload: response.data.user
+				})
+			}
+		} catch (e) {
+			console.log(e)
+		}
+
+	}
+
 	return(
 		<authContext.Provider
 			value={{
@@ -118,7 +140,8 @@ const AuthState = ({children}) => {
 				loading: state.loading,
 				createUser,
 				logIn,
-				clearMsg
+				clearMsg,
+				getAuthenticatedUser
 			}}
 		>
 			{children}

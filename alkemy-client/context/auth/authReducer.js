@@ -30,6 +30,11 @@ export default (state, action) => {
 				...state,
 				loading: action.payload
 			}
+		case types.AUTHENTICATE_USER:
+			return{
+				...state,
+				user: action.payload
+			}
 		default:
 			return state
 	}

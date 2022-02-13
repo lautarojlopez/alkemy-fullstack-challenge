@@ -1,6 +1,7 @@
 //Gets authorization header, read and verify the json web token and store the information in req.user
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 module.exports = (req, res, next) => {
 	//Get authorization header
