@@ -24,7 +24,6 @@ const AppState = ({children}) => {
 				type: types.LOADING_APP,
 				payload: true
 			})
-			console.log(state);
 			//Send request
 			const response = await axiosClient.post('/api/operations', data)
 			Swal.fire({
@@ -36,7 +35,6 @@ const AppState = ({children}) => {
 				type: types.LOADING_APP,
 				payload: false
 			})
-			console.log(state);
 		} catch (e) {
 			console.log(e)
 			//Stop loading
