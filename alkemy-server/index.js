@@ -21,10 +21,8 @@ db.sync()
 //Allow to read req.body
 app.use(express.json())
 
-//Test
-app.use('/', (req, res) => {
-	res.send("Hello world")
-})
+//Routes
+app.use('/api/users', require('./routes/users'))
 
 //Run server in port
 app.listen(port, '0.0.0.0')
