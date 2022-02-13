@@ -23,6 +23,7 @@ app.use(express.json())
 
 //Routes
 app.use('/api/users', require('./routes/users'))
+app.use('/api/auth', require('./routes/auth'))
 
 //Run server in port
 app.listen(port, '0.0.0.0')
