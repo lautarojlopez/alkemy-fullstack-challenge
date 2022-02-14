@@ -36,7 +36,7 @@ exports.getOperations = async (req, res) => {
 	const userId = req.user.id
 	try {
 		//Find operations
-		const results = await Operation.findAll({where: {userId: userId}})
+		const results = await Operation.findAll({where: {userId: userId}, order: [['createdAt', 'DESC']], limit: 10})
 		//Return operations
 		return res.json(results)
 	} catch (e) {
