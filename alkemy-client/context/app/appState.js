@@ -64,6 +64,35 @@ const AppState = ({children}) => {
 		}
 	}
 
+	//Delete operations
+	const deleteOperation = async (id) => {
+		try {
+			Swal.fire({
+					title: '¿Estás seguro?',
+					text: "Una vez eliminada esta operación, no podrás recuperarla",
+					icon: 'warning',
+					showCancelButton: true,
+					confirmButtonColor: '#3085d6',
+					cancelButtonColor: '#d33',
+					confirmButtonText: 'Eliminar'
+				}).then(async (result) => {
+					if (result.isConfirmed) {
+						const response = await axiosClient.delete(`/api/operations/${id}`)
+						Swal.fire({
+							icon: 'success',
+							title: response.data.msg
+						})
+					}
+				})
+		} catch (e) {
+			console.log(e);
+			Swal.fire({
+				icon: 'error',
+				title: response.data.msg
+			})
+		}
+	}
+
 	return(
 		<appContext.Provider
 			value={{
@@ -71,7 +100,8 @@ const AppState = ({children}) => {
 				loading: state.loading,
 				operations: state.operations,
 				createOperation,
-				getOperations
+				getOperations,
+				deleteOperation
 			}}
 		>
 			{children}

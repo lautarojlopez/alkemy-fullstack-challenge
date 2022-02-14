@@ -1,11 +1,18 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 //Dependecie to format date
 import moment from 'moment'
 import 'moment/locale/es';
 
+//Context
+import appContext from '../context/app/appContext'
+
 const Operation = ({operation}) => {
 
-	const {type, category, concept, amount, date} = operation
+	const {id, type, category, concept, amount, date} = operation
+
+	//Extract values from context
+	const AppContext = useContext(appContext)
+	const {deleteOperation} = AppContext
 
 	//Format date
 	moment.locale('es')
@@ -18,7 +25,7 @@ const Operation = ({operation}) => {
 		<div className={`relative my-2 p-3 border-2 ${type === 'Ingreso' ? 'border-green-800 bg-green-200 text-green-900' : 'border-red-800 bg-red-200 text-red-800'}`}>
 			<i onClick={() => setShowMenu(!showMenu)} className="cursor-pointer absolute top-1 right-3 text-2xl fa-solid fa-ellipsis"></i>
 			<div className={`${showMenu ? 'visible opacity-100' : 'invisible opacity-0'} transition-all ease-linear duration-100 absolute top-8 right-2 text-center font-bold bg-white border-2 border-neutral-500 w-6/12 sm:w-4/12 md:w-3/12`}>
-				<p className="text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Eliminar <i className="py-2 fa-solid fa-trash-can text-red-500"></i></p>
+				<p onClick={() => deleteOperation(id)} className="text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Eliminar <i className="py-2 fa-solid fa-trash-can text-red-500"></i></p>
 				<p className="text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Editar <i className="py-2 fa-solid fa-pen-to-square text-amber-500"></i></p>
 			</div>
 			<p><span className="font-bold">Tipo: </span>{type}</p>
