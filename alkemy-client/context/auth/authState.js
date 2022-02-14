@@ -136,6 +136,7 @@ const AuthState = ({children}) => {
 		dispatch({
 			type: types.LOGOUT
 		})
+		router.push('/login')
 	}
 
 	return(

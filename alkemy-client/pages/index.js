@@ -25,12 +25,10 @@ export default function Home() {
 		//If there is a token, get the authenticated user an store it in state
 		if(token){
 			getAuthenticatedUser(token)
-		}
-		//If not, redirect to login page
-		else{
+		}else{
 			router.push('/login')
 		}
-	}, [user])
+	}, [])
 
 	return (
 		<Fragment>

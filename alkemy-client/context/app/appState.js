@@ -10,7 +10,8 @@ const AppState = ({children}) => {
 	//Initial state values
 	const initialState = {
 		msg: null,
-		loading: null
+		loading: null,
+		operations: null
 	}
 
 	//Reducer
@@ -50,12 +51,27 @@ const AppState = ({children}) => {
 		}
 	}
 
+	//Get user's operations
+	const getOperations = async () => {
+		try {
+			const response = await axiosClient.get('/api/operations')
+			dispatch({
+				type: types.GET_OPERATIONS,
+				payload: response.data
+			})
+		} catch (e) {
+				console.log(e)
+		}
+	}
+
 	return(
 		<appContext.Provider
 			value={{
 				msg: state.msg,
 				loading: state.loading,
-				createOperation
+				operations: state.operations,
+				createOperation,
+				getOperations
 			}}
 		>
 			{children}

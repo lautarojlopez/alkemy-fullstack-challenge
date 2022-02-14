@@ -35,6 +35,7 @@ const OperationForm = () => {
 		}),
 		onSubmit: (values) => {
 			createOperation(values)
+			form.resetForm()
 		}
 	})
 
@@ -48,7 +49,7 @@ const OperationForm = () => {
 			{form.errors.concept && form.touched.concept ? <Alert msg={form.errors.concept}/> : null}
 
 			<label htmlFor="amount">Monto</label>
-			<input type="number" min="0" name="amount" id="amount" value={form.values.amount} onChange={form.handleChange} placeholder="$"/>
+			<input type="number" min="0" step="any" name="amount" id="amount" value={form.values.amount} onChange={form.handleChange} placeholder="$"/>
 			{form.errors.amount && form.touched.amount ? <Alert msg={form.errors.amount}/> : null}
 
 			<label htmlFor="date">Fecha</label>
@@ -58,16 +59,16 @@ const OperationForm = () => {
 			<label htmlFor="category">Categoría</label>
 			<select name="category" id="category" value={form.values.category} onChange={form.handleChange}>
 				<option value="" defaultValue hidden>--Seleccionar--</option>
-				<option value="food">Comida</option>
-				<option value="clothes">Ropa</option>
+				<option value="Comida">Comida</option>
+				<option value="Ropa">Ropa</option>
 			</select>
 			{form.errors.category && form.touched.category ? <Alert msg={form.errors.category}/> : null}
 
 			<label htmlFor="type">Tipo</label>
 			<select name="type" id="type" value={form.values.type} onChange={form.handleChange}>
 				<option value="" defaultValue hidden>--Seleccionar--</option>
-				<option value="income">Ingreso</option>
-				<option value="outcome">Egreso</option>
+				<option value="Ingreso">Ingreso</option>
+				<option value="Egreso">Egreso</option>
 			</select>
 			{form.errors.type && form.touched.type ? <Alert msg={form.errors.type}/> : null}
 

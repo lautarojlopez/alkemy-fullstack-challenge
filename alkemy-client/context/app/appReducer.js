@@ -7,6 +7,11 @@ export default (state, action) => {
 				...state,
 				loading: action.payload
 			}
+		case types.GET_OPERATIONS:
+			return{
+				...state,
+				operations: action.payload
+			}
 		default:
 			return state
 	}
