@@ -17,6 +17,9 @@ router.post('/', [
 //Get authenticated user's operations
 router.get('/', auth, operationsController.getOperations)
 
+//Get operation by id
+router.get('/:id', auth, operationsController.getById)
+
 //Delete operation
 router.delete('/:id', auth, operationsController.deleteOperation)
 
