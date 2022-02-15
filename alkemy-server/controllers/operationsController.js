@@ -123,3 +123,37 @@ exports.editOperation = async (req, res) => {
 	}
 
 }
+
+//Get operation by id
+exports.getById = async (req, res) => {
+
+	//Get operation id
+	const id = req.params.id
+
+	try {
+		const operation = await Operation.findOne({where: {id: id}})
+		if(operation){
+			//If the user is not the one who created the operation, return error message
+			if(operation.userId !== req.user.id){
+				return res.status(401).json({
+					msg: "No tienes permiso para realizar esta acción"
+				})
+			}
+			//Return the operation
+			else{
+				return res.json({operation})
+			}
+		}
+		//If the operation don't exist, return error message
+		else{
+			return res.status(404).json({
+				msg: "El proyecto no existe"
+			})
+		}
+	} catch (e) {
+		console.log(e)
+		return res.status(500).json({
+			msg: "Ha ocurrido un error"
+		})
+	}
+}
