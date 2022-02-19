@@ -1,4 +1,6 @@
 import React, {useState, useContext} from 'react'
+import Link from 'next/link'
+
 //Dependecie to format date
 import moment from 'moment'
 import 'moment/locale/es';
@@ -26,7 +28,7 @@ const Operation = ({operation}) => {
 			<i onClick={() => setShowMenu(!showMenu)} className="cursor-pointer absolute top-1 right-3 text-2xl fa-solid fa-ellipsis"></i>
 			<div className={`${showMenu ? 'visible opacity-100' : 'invisible opacity-0'} transition-all ease-linear duration-100 absolute top-8 right-2 text-center font-bold bg-white border-2 border-neutral-500 w-6/12 sm:w-4/12 md:w-3/12`}>
 				<p onClick={() => deleteOperation(id)} className="text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Eliminar <i className="py-2 fa-solid fa-trash-can text-red-500"></i></p>
-				<p className="text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Editar <i className="py-2 fa-solid fa-pen-to-square text-amber-500"></i></p>
+				<Link href={`/edit/${id}`}><a className="block text-neutral-600 w-full h-full cursor-pointer hover:bg-gray-200">Editar <i className="py-2 fa-solid fa-pen-to-square text-amber-500"></i></a></Link>
 			</div>
 			<p><span className="font-bold">Tipo: </span>{type}</p>
 			<p><span className="font-bold">Categoria: </span>{category}</p>

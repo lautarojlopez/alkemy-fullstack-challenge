@@ -12,6 +12,11 @@ export default (state, action) => {
 				...state,
 				operations: action.payload
 			}
+		case types.GET_OPERATION_BY_ID:
+			return{
+				...state,
+				to_edit_operation: action.payload
+			}
 		default:
 			return state
 	}
