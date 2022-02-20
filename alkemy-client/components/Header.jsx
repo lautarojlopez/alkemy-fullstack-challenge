@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react'
+import Link from 'next/link'
 
 //Context
 import authContext from '../context/auth/authContext'
@@ -15,7 +16,7 @@ const Header = () => {
 	return(
 		<header className="flex flex-col md:flex-row justify-between items-center font-bold text-xl bg-cyan-600 shadow py-5 md:py-3 px-5 text-white">
 			<div className="flex justify-between items-center w-full md:w-auto">
-				<p className="">Administrador de Presupuesto</p>
+				<Link href='/'><a className="">Administrador de Presupuesto</a></Link>
 				<i onClick={() => setShowMenu(!showMenu)} className="fa-solid fa-bars text-3xl block md:hidden cursor-pointer"></i>
 			</div>
 			<div className="flex items-center hidden md:block">
